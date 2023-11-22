@@ -38,7 +38,14 @@ function setMs(dir) {
     document.querySelector('#ms').innerHTML = digit;
 };
 
-function resetCondition() {
+function stopTime() {
+    start = false;
+    box.classList.add('paused');
+    ssbtn.innerHTML = `<i class='bx bx-play'></i>`;
+    clearInterval(fn);
+};
+
+function resetTime() {
     start = false;
     end = false;
     use_mouse = false;
@@ -50,24 +57,15 @@ function resetCondition() {
 
     beep.pause();
     beep.currentTime = 0;
-}
 
-function stopTime() {
-    start = false;
-    box.classList.add('paused');
-    ssbtn.innerHTML = `<i class='bx bx-play'></i>`;
-    clearInterval(fn);
-};
-
-function resetTime() {
     time.m = 1;
     time.s = 1;
     time.ms = 1;
+
     setTime('m', 0);
     setTime('s', 0);
     setMs(0);
     clearInterval(fn);
-    resetCondition();
 };
 
 function startTime() {
@@ -101,7 +99,7 @@ function startTime() {
             }, 10);
         };
     } else if (start === false && end === true) {
-        resetCondition();
+        resetTime();
     } else if (start === true && end === false) {
         stopTime();
     };
