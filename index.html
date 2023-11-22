@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/kpo.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="plugins/boxicons-2.0.7/css/boxicons.min.css">
+    <title>KPO | Timer</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1 class="title">
+            <span>
+                Debat Pemilihan Calon
+            </span>
+            <br>
+            Ketua dan Wakil Ketua Osis
+        </h1>
+        <div class="box">
+            <div class="col">
+                <div class="image">
+                    <img src="assets/kpo.png" alt="KPO" draggable="false">
+                </div>
+            </div>
+            <div class="glass"></div>
+            <div class="col">
+                <h1 id="m">00</h1>
+                <span class="label">Menit</span>
+                <span class="separator">:</span>
+                <div class="button up" onclick="setTime('m', 1)"><i class='bx bx-chevron-up'></i></div>
+                <div class="button down" onclick="setTime('m', 0)"><i class='bx bx-chevron-down'></i></div>
+            </div>
+            <div class="col">
+                <h1 id="s">00</h1>
+                <span class="label">Detik</span>
+                <span class="separator">:</span>
+                <div class="button up" onclick="setTime('s', 1)"><i class='bx bx-chevron-up'></i></div>
+                <div class="button down" onclick="setTime('s', 0)"><i class='bx bx-chevron-down'></i></div>
+            </div>
+            <div class="col">
+                <h1 id="ms">000</h1>
+                <span class="label">Milidetik</span>
+                <div class="button up" onclick="setMs(1)"><i class='bx bx-chevron-up'></i></div>
+                <div class="button down" onclick="setMs(0)"><i class='bx bx-chevron-down'></i></div>
+            </div>
+        </div>
+        <div class="control">
+            <button id="s-s-btn" class="button"><i class='bx bx-play'></i></button>
+            <button class="button" onclick="resetTime()"><i class='bx bx-rotate-left'></i></button>
+        </div>
+    </div>
+    <audio id="beep" src="assets/beep.mp3" style="display: none;"></audio>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,210 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('plugins/font/Montserrat-VariableFont_wght.ttf') format('truetype');
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.wrapper {
+    position: relative;
+    display: flex;
+    height: 97vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    margin-bottom: 54px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 700;
+    font-size: 48px;
+    color: rgb(60, 60, 75);
+}
+
+.title span {
+    text-transform: capitalize;
+    font-weight: 400;
+    font-size: 32px;
+}
+
+.box {
+    position: relative;
+    display: flex;
+    width: 85vw;
+    justify-content: space-around;
+    align-items: stretch;
+    background: rgb(20, 20, 25);
+    z-index: 1;
+}
+
+.box.on-timer {
+    cursor: context-menu;
+}
+
+.box.on-timer .button,
+.box.paused .button {
+    opacity: 0 !important;
+    pointer-events: none;
+}
+
+.box.on-timer .label,
+.box.paused .label {
+    opacity: 1 !important;
+}
+
+.box.on-timer~.control {
+    transform: translateY(-100%);
+}
+
+.box.on-timer:hover~.control,
+.box.paused~.control {
+    transform: none;
+}
+
+.glass {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 77%;
+    height: 100%;
+    background: linear-gradient(to right bottom, rgba(255, 255, 255, .05) 50%, transparent 50%);
+    pointer-events: none;
+}
+
+.col {
+    position: relative;
+    flex: 1;
+    padding: 85px 0;
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+.col:first-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(230, 230, 240);
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+}
+
+.col:last-child {
+    flex: 1.25;
+}
+
+h1 {
+    font-weight: 400;
+    font-size: 125px;
+}
+
+.label {
+    text-transform: uppercase;
+    transition: .2s;
+    opacity: 1;
+    color: rgb(100, 100, 100);
+}
+
+.separator {
+    position: absolute;
+    top: 50%;
+    right: -8px;
+    transform: translateY(-70%);
+    font-size: 64px;
+    color: rgb(100, 100, 100);
+}
+
+.col .button {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border: none;
+    outline: none;
+    background: none;
+    transition: .2s;
+    opacity: 0;
+    cursor: pointer;
+    font-size: 72px;
+    color: rgb(100, 100, 100);
+}
+
+.col:hover .button {
+    opacity: 1;
+}
+
+.col:hover .label {
+    opacity: 0;
+}
+
+.col .up {
+    top: 8px;
+}
+
+.col .down {
+    bottom: 8px;
+}
+
+.col .up:active {
+    top: 0;
+    color: rgb(255, 255, 255);
+}
+
+.col .down:active {
+    bottom: 0;
+    color: rgb(255, 255, 255);
+}
+
+.box.beep h1 {
+    animation: beep 1s linear infinite;
+    color: rgb(200, 0, 0);
+}
+
+@keyframes beep {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: .3;
+    }
+}
+
+.control {
+    display: flex;
+    padding-left: 15%;
+    transition: .3s;
+}
+
+.control:hover {
+    transform: none !important;
+}
+
+.control .button {
+    padding: 10px 100px 8px;
+    background: rgb(230, 230, 240);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    font-size: 32px;
+    color: rgb(60, 60, 75);
+}
+
+.control .button:nth-child(2) {
+    font-size: 24px;
+}
